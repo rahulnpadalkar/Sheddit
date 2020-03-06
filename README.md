@@ -27,7 +27,6 @@ Sample .env file looks like this
 ```
   clientid=your-client-id-goes-here
   clientsecret=your-client-secret-goes-here
-  rediretcurl=this-can-be-anything-example-http://localhost:8000
   useragent=sample-useragent
   username=your-reddit-username
   password=your-reddit-password
