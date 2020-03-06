@@ -1,5 +1,4 @@
 sheddit_log
 schedule.db
 .env
-.env.test
 vendor
