@@ -1,4 +1,7 @@
 # Sheddit
+
+[Sheddit](https://imgur.com/ZZbe5cW)
+
 A Go REST API to schedule posts for reddit.
 
 
