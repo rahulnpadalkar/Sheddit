@@ -18,7 +18,7 @@ There are a few configurations that need to be done.
       "subreddits":"test", (In case multiple, comma seperate them)
       "title":"title-of-your-post",
       "link":"any-validurl",
-      "scheduledate":"2020-03-06T10:46:00.000Z" (ISO TimeDate String)
+      "scheduledate":"2020-03-06T10:46:00.000Z" (ISO DatetimeString)
 ```
 Currently only supports link posts.
 
