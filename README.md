@@ -2,9 +2,6 @@
 
 ![Sheddit](https://i.imgur.com/ZZbe5cW.png)
 
-A Go REST API to schedule posts for reddit.
-
-
 ## Setup
 
 There are a few configurations that need to be done.
