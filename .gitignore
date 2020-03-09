@@ -2,3 +2,4 @@ sheddit_log
 schedule.db
 .env
 vendor
+.DS_Store

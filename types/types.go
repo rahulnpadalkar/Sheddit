@@ -8,3 +8,9 @@ type ScheduleRequest struct {
 	ScheduleID   int
 	Complete     bool
 }
+
+type TestSchedulePost struct {
+	Subreddits []string
+	Link       string
+	Title      string
+}

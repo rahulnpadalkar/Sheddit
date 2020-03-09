@@ -7,22 +7,21 @@ import (
 	"net/http"
 	"os"
 	logger "sheddit/logger"
-	scheduledb "sheddit/scheduleDatabase"
 	session "sheddit/session"
 
 	"github.com/mozillazg/request"
 )
 
 // BulkPost : Submits same link to different subreddits
-func BulkPost(subreddits []string, link, title string, scheduleID int) {
+func BulkPost(subreddits []string, link, title string) bool {
 	authToken := session.GetAuthToken()
 	if authToken != nil {
 		for _, subreddit := range subreddits {
 			submitLink(link, title, subreddit, authToken.AccessToken)
 		}
-		scheduledb.UpdateStatus(scheduleID)
+		return true
 	}
-
+	return false
 }
 
 func submitLink(link, title, subreddit, access_token string) {

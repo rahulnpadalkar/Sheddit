@@ -3,6 +3,7 @@ package taskscheduler
 import (
 	"log"
 	"sheddit/actions"
+	scheduledb "sheddit/scheduleDatabase"
 	"sheddit/types"
 	"strings"
 	"time"
@@ -18,6 +19,9 @@ func SchedulePost(schedulePost *types.ScheduleRequest) {
 	}
 	timeDuration := time.Until(scheduleTime)
 	time.AfterFunc(timeDuration, func() {
-		actions.BulkPost(strings.Split(schedulePost.Subreddits, ","), schedulePost.Link, schedulePost.Title, schedulePost.ScheduleID)
+		success := actions.BulkPost(strings.Split(schedulePost.Subreddits, ","), schedulePost.Link, schedulePost.Title)
+		if success {
+			scheduledb.UpdateStatus(schedulePost.ScheduleID)
+		}
 	})
 }
