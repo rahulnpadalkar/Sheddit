@@ -106,3 +106,49 @@ func RecoverSchedules() []types.ScheduleRequest {
 	})
 	return recoverSchedules
 }
+
+// GetAllSchedules : This returns all schedules
+func GetAllSchedules() []types.ScheduleRequest {
+	var scheduledPosts []types.ScheduleRequest
+	db.Update(func(tx *bolt.Tx) error {
+		b, err := tx.CreateBucketIfNotExists([]byte(os.Getenv("bucketname")))
+		if err != nil {
+			logger.Log(err.Error())
+		}
+		cur := b.Cursor()
+
+		for k, post := cur.First(); k != nil; k, post = cur.Next() {
+			scheduledPost := types.ScheduleRequest{}
+			json.Unmarshal(post, &scheduledPost)
+			scheduledPosts = append(scheduledPosts, scheduledPost)
+		}
+		return nil
+	})
+	return scheduledPosts
+}
+
+// GetCompleteSchedules : Returns all complete schedules
+func GetCompleteSchedules() []types.ScheduleRequest {
+
+	allSchedules := GetAllSchedules()
+	var completeSchedules []types.ScheduleRequest
+	for _, post := range allSchedules {
+		if post.Complete {
+			completeSchedules = append(completeSchedules, post)
+		}
+	}
+	return completeSchedules
+}
+
+//GetIncompleteSchedules : Returns all incomplete schedules
+func GetIncompleteSchedules() []types.ScheduleRequest {
+
+	allSchedules := GetAllSchedules()
+	var incompleteSchedules []types.ScheduleRequest
+	for _, post := range allSchedules {
+		if !post.Complete {
+			incompleteSchedules = append(incompleteSchedules, post)
+		}
+	}
+	return incompleteSchedules
+}
