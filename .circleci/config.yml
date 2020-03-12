@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/sheddit
+    context: Sheddit
+    docker:
+      - image: circleci/golang:1.12
+        environment:
+            GO111MODULE: 'on'
+    environment:
+        TEST_RESULTS: /tmp/test-results
+    steps:
+        - checkout
+        - run: mkdir -p $TEST_RESULTS
+        - run: go mod download
+        - run: go test ./...
+        - store_test_results: 
+            path: /tmp/test-results
+
+    
