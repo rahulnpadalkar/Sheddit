@@ -1,7 +1,8 @@
-# Sheddit
+# ⏱Sheddit
 
 ![Sheddit](https://i.imgur.com/ZZbe5cW.png)
 
+[![rahulnpadalkar](https://circleci.com/gh/rahulnpadalkar/Sheddit.svg?style=shield)](<LINK>)
 ## Setup
 
 There are a few configurations that need to be done.
