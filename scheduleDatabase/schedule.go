@@ -152,3 +152,16 @@ func GetIncompleteSchedules() []types.ScheduleRequest {
 	}
 	return incompleteSchedules
 }
+
+func deleteBucket(name string) bool {
+	var success bool
+	db.Update(func(tx *bolt.Tx) error {
+		err := tx.DeleteBucket([]byte(name))
+		if err != nil {
+			success = false
+		}
+		success = true
+		return nil
+	})
+	return success
+}
