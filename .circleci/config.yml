@@ -2,7 +2,6 @@ version: 2
 jobs:
   build:
     working_directory: /go/src/sheddit
-    context: Sheddit
     docker:
       - image: circleci/golang:1.12
         environment:
