@@ -5,13 +5,12 @@ import (
 	"sheddit/actions"
 	scheduledb "sheddit/scheduleDatabase"
 	"sheddit/types"
-	"strings"
 	"time"
 )
 
 const ISOFormat = "2006-01-02T15:04:05.999999999Z07:00"
 
-// SchedulePost: Schedule a reddit post
+// SchedulePost : Schedule a reddit post
 func SchedulePost(schedulePost *types.ScheduleRequest) {
 	scheduleTime, err := time.Parse(ISOFormat, schedulePost.ScheduleDate)
 	if err != nil {
@@ -19,7 +18,8 @@ func SchedulePost(schedulePost *types.ScheduleRequest) {
 	}
 	timeDuration := time.Until(scheduleTime)
 	time.AfterFunc(timeDuration, func() {
-		success := actions.BulkPost(strings.Split(schedulePost.Subreddits, ","), schedulePost.Link, schedulePost.Title)
+		//success := actions.BulkPost(strings.Split(schedulePost.Subreddits, ","), schedulePost.Link, schedulePost.Title)
+		success := actions.BulkPost(*schedulePost)
 		if success {
 			scheduledb.UpdateStatus(schedulePost.ScheduleID)
 		}
