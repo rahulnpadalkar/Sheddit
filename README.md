@@ -37,12 +37,21 @@ Sample .env file looks like this
 ```
 *A bucket (analogous to a db table) will be created with bucketname*
 
+## Features
+
+📚Bulk Posting
+
+⎋ Automic Scheduling after crash/failure
+
+🅰️ Text Posts
+
+🟠 Status of scheduled posts
+
 ## Roadmap
 
 Things that will be supported soon
 
-* Text Posts
-* Status of scheduled posts
+🚀 Twitter Support
 
 ## Contact me?
 
