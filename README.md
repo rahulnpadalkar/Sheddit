@@ -2,7 +2,7 @@
 
 ![Sheddit](https://i.imgur.com/ZZbe5cW.png)
 
-[![rahulnpadalkar](https://circleci.com/gh/rahulnpadalkar/Sheddit.svg?style=shield)](<LINK>)
+[![rahulnpadalkar](https://circleci.com/gh/rahulnpadalkar/Sheddit.svg?style=shield)](https://circleci.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Setup
 
 There are a few configurations that need to be done.
