@@ -1,4 +1,4 @@
-package scheduleDatabase
+package scheduledatabase
 
 import (
 	"os"

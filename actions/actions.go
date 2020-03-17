@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	auth "sheddit/authentication"
 	logger "sheddit/logger"
-	session "sheddit/session"
 	"sheddit/types"
 	"strconv"
 	"strings"
@@ -17,7 +17,7 @@ import (
 
 // BulkPost : Submits same link to different subreddits
 func BulkPost(post types.ScheduleRequest) bool {
-	authToken := session.GetAuthToken()
+	authToken := auth.GetAuthToken()
 	subreddits := strings.Split(post.Subreddits, ",")
 	if authToken != nil {
 		for _, subreddit := range subreddits {

@@ -9,6 +9,7 @@ type ScheduleRequest struct {
 	ScheduleDate string `binding:"required"`
 	ScheduleID   int
 	Complete     bool
+	Provider     string `binding:"required"`
 }
 
 // TestSchedulePost : Represents a test structur used for testing BulkPost

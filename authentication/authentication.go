@@ -1,4 +1,4 @@
-package session
+package authentication
 
 import (
 	"encoding/json"
@@ -19,11 +19,17 @@ type AuthToken struct {
 
 type authResponse struct {
 	Access_token string
-	Expiry       int64
+	Expires_in   int64
 	Scope        string
 }
 
+var authToken AuthToken
+
+// GetAuthToken : Get auth token for making calls to the api.
 func GetAuthToken() *AuthToken {
+	if !authTokenExpired() {
+		return &authToken
+	}
 	c := new(http.Client)
 	auth := authResponse{}
 	req := request.NewRequest(c)
@@ -49,16 +55,23 @@ func GetAuthToken() *AuthToken {
 		if err != nil {
 			log.Fatal(err)
 		}
-		duration, err := time.ParseDuration(string(strconv.FormatInt(auth.Expiry, 10)) + "s")
+		duration, err := time.ParseDuration(string(strconv.FormatInt(auth.Expires_in, 10)) + "s")
 		if err != nil {
 			log.Fatal(err)
 		}
 		expiryTime := time.Now().Add(duration)
-
-		return &AuthToken{
+		authToken = AuthToken{
 			Expiry:      expiryTime,
 			AccessToken: auth.Access_token,
 		}
+		return &authToken
 	}
 	return nil
+}
+
+func authTokenExpired() bool {
+	if authToken.Expiry.After(time.Now()) {
+		return false
+	}
+	return true
 }

@@ -3,7 +3,7 @@ package main
 import (
 	logger "sheddit/logger"
 	server "sheddit/requesthandler"
-	schedulerdb "sheddit/scheduleDatabase"
+	schedulerdb "sheddit/scheduledatabase"
 	taskscheduler "sheddit/taskscheduler"
 )
 

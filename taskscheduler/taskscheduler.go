@@ -3,7 +3,7 @@ package taskscheduler
 import (
 	"log"
 	"sheddit/actions"
-	scheduledb "sheddit/scheduleDatabase"
+	scheduledb "sheddit/scheduledatabase"
 	"sheddit/types"
 	"time"
 )

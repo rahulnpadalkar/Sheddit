@@ -1,7 +1,7 @@
 package requesthandler
 
 import (
-	"sheddit/scheduleDatabase"
+	scheduleDatabase "sheddit/scheduledatabase"
 	"sheddit/taskscheduler"
 	ty "sheddit/types"
 

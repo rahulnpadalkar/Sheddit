@@ -1,6 +1,6 @@
-package session
+package authentication
 
-import(
+import (
 	"testing"
 )
 
