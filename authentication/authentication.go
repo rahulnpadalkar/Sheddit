@@ -8,6 +8,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/dghubble/go-twitter/twitter"
+	"github.com/dghubble/oauth1"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/mozillazg/request"
 )
@@ -23,6 +25,7 @@ type authResponse struct {
 	Scope        string
 }
 
+var client *twitter.Client
 var authToken AuthToken
 
 // GetAuthToken : Get auth token for making calls to the api.
@@ -74,4 +77,15 @@ func authTokenExpired() bool {
 		return false
 	}
 	return true
+}
+
+func GetClient() *twitter.Client {
+	if client != nil {
+		return client
+	}
+	config := oauth1.NewConfig(os.Getenv("t_consumerkey"), os.Getenv("t_consumersecret"))
+	token := oauth1.NewToken(os.Getenv("t_accesstoken"), os.Getenv("t_accessecret"))
+	httpClient := config.Client(oauth1.NoContext, token)
+	client := twitter.NewClient(httpClient)
+	return client
 }

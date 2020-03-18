@@ -7,7 +7,7 @@ import (
 
 //TestBulkPost : test for BulkPost in actions package
 func TestBulkPost(t *testing.T) {
-
+	var tweetIds []int64
 	postTable := []types.ScheduleRequest{
 		{
 			Subreddits: "test,sandboxtest",
@@ -15,26 +15,30 @@ func TestBulkPost(t *testing.T) {
 			Title:      "Must watch!",
 			Text:       "",
 			ScheduleID: 1,
+			Provider:   "Reddit",
 		},
 		{
-			Subreddits: "test,sandboxtest",
-			Link:       "https://www.youtube.com/watch?v=Fkk9DI-8el4",
-			Title:      "testPost2",
-			Text:       "",
-			ScheduleID: 2,
+			Text:       "Test Tweet!",
+			ScheduleID: 4,
+			Provider:   "Twitter",
 		},
 		{
 			Subreddits: "test,sandboxtest",
 			Text:       "Hello!",
 			Title:      "testPost2",
 			Link:       "",
-			ScheduleID: 3,
+			ScheduleID: 5,
+			Provider:   "Twitter",
 		},
 	}
 	for _, v := range postTable {
-		success := BulkPost(v)
+		success, id := BulkPost(v)
+		if id != 0 {
+			tweetIds = append(tweetIds, id)
+		}
 		if !success {
-			t.Errorf("Failed for : subreddits: %v, link: %v and title %v", v.Subreddits, v.Link, v.Title)
+			t.Errorf("Failed for :%v", v)
 		}
 	}
+	deleteTestTweets(tweetIds)
 }

@@ -6,6 +6,7 @@ import (
 
 func StartServer() {
 	router := gin.Default()
+	addcustomvalidator()
 	router.POST("/schedulePost", schedulePost)
 	router.GET("/getallschedules", getAllSchedules)
 	router.Run(":7009")

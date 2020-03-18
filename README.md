@@ -47,11 +47,13 @@ Sample .env file looks like this
 
 🟠 Status of scheduled posts
 
+🐦Twitter Support
+
 ## Roadmap
 
 Things that will be supported soon
 
-🚀 Twitter Support
+🚀 Adding Postgres support
 
 ## Contact me?
 

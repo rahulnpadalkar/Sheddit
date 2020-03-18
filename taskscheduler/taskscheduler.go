@@ -18,8 +18,7 @@ func SchedulePost(schedulePost *types.ScheduleRequest) {
 	}
 	timeDuration := time.Until(scheduleTime)
 	time.AfterFunc(timeDuration, func() {
-		//success := actions.BulkPost(strings.Split(schedulePost.Subreddits, ","), schedulePost.Link, schedulePost.Title)
-		success := actions.BulkPost(*schedulePost)
+		success, _ := actions.BulkPost(*schedulePost)
 		if success {
 			scheduledb.UpdateStatus(schedulePost.ScheduleID)
 		}

@@ -10,3 +10,10 @@ func TestGetAuthToken(t *testing.T) {
 		t.Error("Failed to get authorization token")
 	}
 }
+
+func TestGetClient(t *testing.T) {
+	client := GetClient()
+	if client == nil {
+		t.Error("Failed to initialize Twitter client")
+	}
+}
