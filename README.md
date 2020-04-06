@@ -6,7 +6,7 @@
 
 ## ShedditUI
 
-(ShedditUI)[https://github.com/rahulnpadalkar/ShedditUI] is a desktop application for Sheddit. So if you **don't want to interact with a server directly** then you can use ShedditUI. It has been released for macOS and Windows. It's also **free and open source.**
+[ShedditUI](https://github.com/rahulnpadalkar/ShedditUI) is a desktop application for Sheddit. So if you **don't want to interact with a server directly** then you can use ShedditUI. It has been released for macOS and Windows. It's also **free and open source.**
 
 **NOTE: Sheddit UI is a mere desktop application, it still needs Sheddit server to function. So the below setup is required regardless.**
 
@@ -58,7 +58,7 @@ There are a few configurations that need to be done.
 
 ## Supported endpoints
 
-### schedulePost
+### ◾ schedulePost
 
 Schedule a post for either twitter or reddit.
 
@@ -85,7 +85,7 @@ Example data for request:
   
 4. scheduledate and provider is mandatory fields.
 
-### getallschedules
+### ◾ getallschedules
 
 Get the all scheduled post.
 
