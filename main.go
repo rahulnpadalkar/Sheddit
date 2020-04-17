@@ -9,8 +9,9 @@ import (
 
 func main() {
 	logger.InitialzeLogger()
-	schedulerdb.InitializeDB()
-	recoverSchedues := schedulerdb.RecoverSchedules()
+	schedulerdb.InitilaizeService()
+	dbInstance := schedulerdb.GetInstance()
+	recoverSchedues := dbInstance.RecoverSchedules()
 	for _, schedule := range recoverSchedues {
 		taskscheduler.SchedulePost(&schedule)
 	}

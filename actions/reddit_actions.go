@@ -9,7 +9,6 @@ import (
 	auth "sheddit/authentication"
 	"sheddit/logger"
 	"sheddit/types"
-	"strconv"
 	"strings"
 
 	"github.com/mozillazg/request"
@@ -20,7 +19,7 @@ func redditPost(post types.ScheduleRequest) bool {
 	subreddits := strings.Split(post.Subreddits, ",")
 	if authToken != nil {
 		for _, subreddit := range subreddits {
-			submitPost(createData(post, subreddit), authToken.AccessToken, strconv.FormatInt(int64(post.ScheduleID), 10))
+			submitPost(createData(post, subreddit), authToken.AccessToken, post.ScheduleID)
 		}
 		return true
 	}

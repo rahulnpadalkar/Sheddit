@@ -79,6 +79,7 @@ func authTokenExpired() bool {
 	return true
 }
 
+// GetClient : Get Twitter Client
 func GetClient() *twitter.Client {
 	if client != nil {
 		return client

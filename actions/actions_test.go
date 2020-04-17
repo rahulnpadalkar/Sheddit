@@ -14,12 +14,12 @@ func TestBulkPost(t *testing.T) {
 			Link:       "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 			Title:      "Must watch!",
 			Text:       "",
-			ScheduleID: 1,
+			ScheduleID: "1",
 			Provider:   "Reddit",
 		},
 		{
 			Text:       "Test Tweet!",
-			ScheduleID: 4,
+			ScheduleID: "4",
 			Provider:   "Twitter",
 		},
 		{
@@ -27,7 +27,7 @@ func TestBulkPost(t *testing.T) {
 			Text:       "Hello!",
 			Title:      "testPost2",
 			Link:       "",
-			ScheduleID: 5,
+			ScheduleID: "5",
 			Provider:   "Twitter",
 		},
 	}

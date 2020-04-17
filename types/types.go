@@ -7,14 +7,18 @@ type ScheduleRequest struct {
 	Text         string
 	Link         string
 	ScheduleDate string `binding:"required"`
-	ScheduleID   int
-	Complete     bool
+	ScheduleID   string `pg:"pk"`
+	Complete     bool   `sql:",notnull"`
 	Provider     string `binding:"required,oneof=reddit Reddit twitter Twitter"`
 }
 
-// TestSchedulePost : Represents a test structur used for testing BulkPost
-type TestSchedulePost struct {
-	Subreddits []string
-	Link       string
-	Title      string
+// EmailRequest : Represents structure of a email request
+type EmailRequest struct {
+	To           string `binding:"required"`
+	Template     string `binding:"required"`
+	Data         string `binding:"required"`
+	ScheduleDate string `binding:"required"`
+	Subject      string `binding:"required"`
+	ScheduleID   string
+	Complete     bool `sql:",notnull"`
 }
