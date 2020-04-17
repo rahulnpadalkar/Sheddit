@@ -116,13 +116,15 @@ The structure of a scheduled post is as follows:
 
 🐦Twitter Support
 
+🚀 Adding Postgres support
+
+✉ SMTP Support
+
 ## Roadmap
 
 Things that will be supported soon
 
-🚀 Adding Postgres support
-
-✉ SMTP Support
+👥 Support for multiple social media accounts
 
 ## Contact me
 
