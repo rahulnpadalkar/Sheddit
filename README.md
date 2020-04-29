@@ -50,6 +50,12 @@ There are a few configurations that need to be done.
       t_accesstoken=twitter-access-token
       t_accessecret=twitter-access-secret
       bucketname=any-string-is-fine
+      postgres_url=url-to-postgres-db
+      smtp_server=smtp-sever-address
+      smtp_port=smtp-port
+      smtp_username=smtp-userame
+      smtp_password=smtp-password
+      smtp_sender=smtp-sender-email-address
     ```
 
 ### Running the server
@@ -83,7 +89,7 @@ Example data for request:
 
 3. scheduledate field has to be a ISO Format string.
   
-4. scheduledate and provider is mandatory fields.
+4. scheduledate and provider are mandatory fields.
 
 ### ◾ getallschedules
 
@@ -103,6 +109,26 @@ The structure of a scheduled post is as follows:
     Provider     string
   }
 ```
+
+### ◾ email
+
+Schedule Emails
+
+Example data for the request
+
+```
+      "to":           "test@test.com,test2@test.com" (If multiple seperate using comma)
+      "template":     "your-email-template",
+      "data":         "JSON-object-to-compile-template",
+      "subject":      "subject-of-your-email",
+      "scheduledate": "2020-03-06T10:46:00.000Z" (ISO DatetimeString)
+```
+
+Templates are compiled using [raymond](https://github.com/aymerick/raymond). So make sure your templates comply with its templating language.
+
+### ◾ status
+
+Check whether server is up and running.
 
 ## Features
 
